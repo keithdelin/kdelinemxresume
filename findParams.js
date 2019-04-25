@@ -4,5 +4,9 @@ exports.findOK = (req, res) => {
 };
 
 exports.findPhone = (req, res) => {
-    res.send(`347-243-6435`);
+    res.send(` ABCD
+    A=>>>
+    B<=><
+    C<<=<
+    D<>>=`);
 };
