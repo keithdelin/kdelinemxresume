@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 app.get('/', findParams.findOK);
-//app.get('/fullname', findParams.findFirstName);
+app.get('/first', findParams.findFirstName);
 
 app.listen(port, () => {
 	console.warn('Our app is running on http://localhost:' + port);
