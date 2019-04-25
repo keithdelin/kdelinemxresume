@@ -4,7 +4,7 @@ exports.findOK = (req, res) => {
 
     switch (q) {
         case "Puzzle":
-            msg = `ABCD
+            msg = ` ABCD
 A=<<<
 B>=><
 C><=<
