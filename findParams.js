@@ -15,7 +15,7 @@ exports.findOK = (req, res) => {
             msg = `Keith De-Lin`
             break;
         case "Email Address":
-            msg = `Keith De-Lin`
+            msg = `kdelin@gmail.com`
             break;
         case "Phone":
             msg = `347-243-6435`
