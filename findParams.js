@@ -1,7 +1,8 @@
-exports.findOK = (req, res) => {    
+exports.findOK = (req, res) => {
+    //console.log(`params = ${ req.query.id }`);
     res.send(`OK`);
 };
 
-exports.findFirstName = (req, res) => {    
-    res.send(`Keith`);
+exports.findPhone = (req, res) => {
+    res.send(`347-243-6435`);
 };

@@ -4,8 +4,8 @@ const app = express();
 
 const port = process.env.PORT || 8080;
 
-app.get('/', findParams.findOK);
-app.get('/first', findParams.findFirstName);
+app.get('/?q=Phone&d=Please+provide+a+phone+number+we+can+use+to+reach+you.', findParams.findPhone);
+//app.get('/first', findParams.findFirstName);
 
 app.listen(port, () => {
 	console.warn('Our app is running on http://localhost:' + port);
