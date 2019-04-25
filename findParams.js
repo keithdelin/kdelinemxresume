@@ -3,7 +3,7 @@ exports.findOK = (req, res) => {
     //res.send(`OK`);
 
     if (req.query.q === "Puzzle") {
-        res.send(` ABCD
+        res.send(`ABCD
 A=>>>
 B<=><
 C<<=<
