@@ -1,19 +1,39 @@
 const express = require('express');
 const findParams = require('./findParams');
-
-const router = express.Router();
-
-router.use((req, res, next) => {
-  console.log('%s %s %s', req.method, req.url, req.path);
-  next();
-});
-  
 const app = express();
 
 const port = process.env.PORT || 8080;
 
+const winston = require('winston');
+
+const logger = winston.createLogger({
+	level: 'info',
+	format: winston.format.json(),
+	defaultMeta: { service: 'user-service' },
+	transports: [
+	  //
+	  // - Write to all logs with level `info` and below to `combined.log` 
+	  // - Write all logs error (and below) to `error.log`.
+	  //
+	  new winston.transports.File({ filename: 'error.log', level: 'error' }),
+	  new winston.transports.File({ filename: 'combined.log' })
+	]
+  });
+  
+  //
+  // If we're not in production then log to the `console` with the format:
+  // `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
+  // 
+  if (process.env.NODE_ENV !== 'production') {
+	logger.add(new winston.transports.Console({
+	  format: winston.format.simple()
+	}));
+  }
+  
+
+
 app.get('/', findParams.findParams);
 
 app.listen(port, () => {
-	console.log('Our app is running on http://localhost:' + port);
+	console.warn('Our app is running on http://localhost:' + port);
 });
