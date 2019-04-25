@@ -1,5 +1,5 @@
 exports.findOK = (req, res) => {    
-    res.send(`OK1`);
+    res.send(`OK`);
 };
 
 exports.findFirstName = (req, res) => {    
