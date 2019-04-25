@@ -12,6 +12,8 @@ exports.findParams = (req, res) => {
             res.write('Keith');
         }        
     }
+
+    res.end();
     
     
     //res.send(`OK, Keith`);
