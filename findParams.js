@@ -1,15 +1,14 @@
 exports.findOK = (req, res) => {
-    //console.log(`params = ${ req.query.id }`);
-    //res.send(`OK`);
-
+    
     let q = req.query.q;
+
     switch (q) {
         case "Puzzle":
             msg = `ABCD
-            A=<<<
-            B>=><
-            C><=<
-            D>>>=`;
+A=<<<
+B>=><
+C><=<
+D>>>=`;
             break;
         case "Name":
             msg = `Keith De-Lin`
@@ -46,23 +45,5 @@ exports.findOK = (req, res) => {
             break;
     }
 
-    // if (req.query.q === "Puzzle") {
-    //     res.send(`ABCD
-    //     A=<<<
-    //     B>=><
-    //     C><=<
-    //     D>>>=`);
-    // } else {
-    //     res.send(`OK`);
-    // }
-
     res.send(msg);
-};
-
-exports.findPhone = (req, res) => {
-    res.send(` ABCD
-    A=>>>
-    B<=><
-    C<<=<
-    D<>>=`);
 };
