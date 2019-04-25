@@ -1,22 +1,12 @@
 const express = require('express');
 const findParams = require('./findParams');
 
+const router = express.Router();
 
-// const EventEmitter = require('events');
-// const eventEmitter = new EventEmitter();
-// const EventEmitter2 = require('eventemitter2').EventEmitter2;
-
-// const server = new EventEmitter2({
-//   wildcard: true,
-//   delimiter: '::',
-//   newListener: false,
-//   maxListeners: 20,
-//   verboseMemoryLeak: false
-// });
-
-// server.on('foo.*', function(value1, value2) {
-// 	console.log(this.event, value1, value2);
-//   });
+router.use((req, res, next) => {
+  console.log('%s %s %s', req.method, req.url, req.path);
+  next();
+});
   
 const app = express();
 
