@@ -3,12 +3,8 @@ exports.findOK = (req, res) => {
     let q = req.query.q;
 
     switch (q) {
-        case "Puzzle":
-            msg = ` ABCD
-A=<<<
-B>=><
-C><=<
-D>>>=`;
+        case "Puzzle":            
+            msg = handlePuzzle(req.query.d);
             break;
         case "Name":
             msg = `Keith De-Lin`
@@ -20,7 +16,7 @@ D>>>=`;
             msg = `347-243-6435`
             break;
         case "Position":
-            msg = `Software Engineer`
+            msg = `Software Engineer - Front End`
             break;
         case "Years":
             msg = `8`
@@ -32,10 +28,10 @@ D>>>=`;
             msg = `BA`
             break;
         case "Resume":
-            msg = `http://www.linkedin.com/keithdelin`
+            msg = `http://www.de-lineation.com/emx/keith_delin_resume_2019.pdf`
             break;
         case "Source":
-            msg = `http://keithdelin.herokuapp.com/`
+            msg = `http://www.de-lineation.com/emx/kdelinemxresumenew.zip`
             break;
         case "Status":
             msg = `Yes`
@@ -46,4 +42,59 @@ D>>>=`;
     }
 
     res.send(msg);
+
+    function handlePuzzle (q) {
+        let a = q.split(':')[1].replace(/\s/g,'');  
+        let msg = '';
+
+        if (a == 'ABCDA=---B>---C<---D->--'){
+            msg = ` ABCD
+A=<><
+B>=><
+C<<=<
+D>>>=`;
+} else if (a == 'ABCDA=---B>---C->--D<---'){
+    msg = ` ABCD
+A=<<>
+B>=<>
+C>>=>
+D<<<=`;
+} else if (a == 'ABCDA=---B-->-C>---D<---'){
+    msg = ` ABCD
+A=<<>
+B>=>>
+C><=>
+D<<<=`;
+} else if (a == 'ABCDA-<--B-=--C--->D->--'){
+    msg = ` ABCD
+A=<<<
+B>=<<
+C>>=>
+D>><=`;
+} else if (a == 'ABCDA--<-B-->-C--=-D->--'){
+    msg = ` A=<<<
+B>=><
+C><=<
+D>>>=`;
+} else if (a == 'ABCDA-->-B---<C--->D---='){
+    msg = ` ABCD
+A=>>>
+B<=<<
+C<>=>
+D<><=`;
+} else if (a == 'ABCDA---<B-->-C--->D---='){
+    msg = ` ABCD
+A=<<<
+B>=>>
+C><=>
+D><<=`;
+} else if (a == 'ABCDA-->-B---<C--->D---='){
+    msg = ` ABCD
+A=>>>
+B<=<<
+C<>=>
+D<><=`;
+}
+        return msg;
+    }
 };
