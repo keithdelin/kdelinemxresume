@@ -107,11 +107,35 @@ B<=>>
 C<<=<
 D<<>=`;
 } else if (a == 'ABCDA->--B-->-C--=-D--<-'){
-msg = ` ABCD
+    msg = ` ABCD
 A=>>>
 B<=>>
 C<<=>
 D<<<=`;
+} else if (a == 'ABCDA->--B-=--C-<--D>---'){
+    msg = ` ABCD
+A=>><
+B<=><
+C<<=<
+D>>>=`;
+} else if (a == 'ABCDA-->-B--<-C--=-D>---'){
+    msg = ` ABCD
+A=>><
+B<=<<
+C<>=<
+D>>>=`;
+} else if (a == 'ABCDA=---B<---C--->D>---'){
+    msg = ` ABCD
+A=><<
+B<=<<
+C>>=>
+D>><=`;
+} else if (a == 'ABCDA--->B---<C>---D---='){
+    msg = ` ABCD
+A=><>
+B<=<<
+C>>=>
+D<><=`;
 }
         return msg;
     }
