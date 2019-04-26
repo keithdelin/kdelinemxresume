@@ -1,9 +1,10 @@
 exports.findOK = (req, res) => {
-    
+    // grab question from query string
     let q = req.query.q;
-
+    // switch on query 
     switch (q) {
-        case "Puzzle":            
+        case "Puzzle": 
+            // call puzzle function           
             msg = handlePuzzle(req.query.d);
             break;
         case "Name":
@@ -40,13 +41,20 @@ exports.findOK = (req, res) => {
             msg = `OK`
             break;
     }
-
+    // send response 
     res.send(msg);
-
+    
+    // static function that parses puzzle so I can match
+    // hard coding answers as I could not figure out the pattern
+    // found some patterns ie. letter with equal sign has opposite pattern of arrows provided
+    // and other patterns but could not find consistent pattern
+    // Is it possible there is no consistent pattern?? 
     function handlePuzzle (q) {
+        // split off description from query string, trim whitespace and remove spaces
         let a = q.split(':')[1].replace(/\s/g,'');  
+        // set up message
         let msg = '';
-
+        // look for matches
         if (a == 'ABCDA=---B>---C<---D->--'){
             msg = ` ABCD
 A=<><
@@ -198,11 +206,7 @@ B<=<>
 C<>=>
 D<<<=`;
 }
-
-
-
-
-
+        // return msg
         return msg;
     }
 };
